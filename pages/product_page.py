@@ -20,12 +20,12 @@ class ProductPage(BasePage):
         product_in_backet_name = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BACKET_NAME)
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         # print(f'\n{product_in_backet_name.text}\n{product_name.text}')
-        assert product_name.text == product_name.text, "Product names do not match:("
-        # time.sleep(900)
+        assert product_in_backet_name.text == product_name.text, "Product names do not match:("
+        time.sleep(1)
 
     def check_price_product(self):
         product_in_backet_price = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BACKET_PRICE)
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
         # print(f'\n{product_in_backet_name.text}\n{product_name.text}')
-        assert product_price.text == product_price.text, "Product price do not match:("
+        assert product_in_backet_price.text == product_price.text, "Product price do not match:("
         time.sleep(1)
