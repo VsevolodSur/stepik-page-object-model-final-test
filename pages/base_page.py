@@ -63,3 +63,10 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK_INVALID), "Login link is not presented"
+
+    def go_to_backet_page(self):
+        assert self.is_element_present(*BasePageLocators.GO_TO_BASKET_FORM), "Go to backet form is not presented"
+        button = self.browser.find_element(*BasePageLocators.GO_TO_BASKET_FORM)
+        button.click()
+        # self.solve_quiz_and_get_code()
+        time.sleep(1)
