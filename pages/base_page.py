@@ -70,3 +70,8 @@ class BasePage():
         button.click()
         # self.solve_quiz_and_get_code()
         time.sleep(1)
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
+                                                                     
