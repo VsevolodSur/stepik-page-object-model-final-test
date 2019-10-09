@@ -14,13 +14,14 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?prom
 # link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_guest_should_see_add_to_backet_form(browser):
     page = ProductPage(browser, link)
     page.open()
     page.should_be_add_to_backet_form()
 
-@pytest.mark.skip
+# @pytest.mark.skip
+@pytest.mark.need_review
 @pytest.mark.parametrize('links', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
@@ -54,7 +55,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
     page.should_not_be_success_message()
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_guest_cant_see_success_message(browser):
     # Открываем страницу товара
     page = ProductPage(browser, link)
@@ -72,19 +73,20 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     # Проверяем, что нет сообщения об успехе с помощью is_disappeared
     page.should_be_disappeared_success_message()
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_guest_should_see_login_link_on_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.should_be_login_link()
 
-@pytest.mark.skip
+# @pytest.mark.skip
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
 
-@pytest.mark.skip
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     # Гость открывает главную страницу
     page = ProductPage(browser, link)
@@ -122,7 +124,7 @@ class TestUserAddToBasketFromProductPage():
         # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
         page.should_not_be_success_message()
 
-    # @pytest.mark.skip
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self):
         # print(link)
         page = ProductPage(self.browser, link)
